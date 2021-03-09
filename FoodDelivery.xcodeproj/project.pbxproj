@@ -3,27 +3,99 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C9EBDE53C3D6FCE12B4C3DCE /* Pods_FoodDelivery.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 418735F5CFEE1277BD02358E /* Pods_FoodDelivery.framework */; };
+		F63FD57625F535AA00C43CCF /* ScrollableHorizontalStackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = F63FD57525F535AA00C43CCF /* ScrollableHorizontalStackView.swift */; };
+		F6788B3825F7495000D5FE22 /* FoodTypeButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6788B3725F7495000D5FE22 /* FoodTypeButton.swift */; };
+		F6788B3B25F7B7B900D5FE22 /* MenuConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6788B3A25F7B7B900D5FE22 /* MenuConstants.swift */; };
 		F69372F925F36FEA00494011 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69372F825F36FEA00494011 /* AppDelegate.swift */; };
 		F69372FB25F36FEA00494011 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69372FA25F36FEA00494011 /* SceneDelegate.swift */; };
-		F69372FD25F36FEA00494011 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69372FC25F36FEA00494011 /* ViewController.swift */; };
-		F693730025F36FEA00494011 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F69372FE25F36FEA00494011 /* Main.storyboard */; };
 		F693730225F36FEB00494011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F693730125F36FEB00494011 /* Assets.xcassets */; };
 		F693730525F36FEB00494011 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F693730325F36FEB00494011 /* LaunchScreen.storyboard */; };
+		F693731625F403C300494011 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693731525F403C300494011 /* MenuViewController.swift */; };
+		F693731A25F403E700494011 /* MenuViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693731925F403E700494011 /* MenuViewControllerProtocol.swift */; };
+		F693731D25F4041200494011 /* MenuPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693731C25F4041200494011 /* MenuPresenterProtocol.swift */; };
+		F693732025F4042900494011 /* MenuPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693731F25F4042900494011 /* MenuPresenter.swift */; };
+		F693732325F4045F00494011 /* MenuInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732225F4045F00494011 /* MenuInteractorProtocol.swift */; };
+		F693732625F4047600494011 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732525F4047600494011 /* MenuInteractor.swift */; };
+		F693732925F4049B00494011 /* MenuRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732825F4049B00494011 /* MenuRouterProtocol.swift */; };
+		F693732C25F404AF00494011 /* MenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732B25F404AF00494011 /* MenuRouter.swift */; };
+		F693732F25F4053900494011 /* MenuAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732E25F4053900494011 /* MenuAssemblyProtocol.swift */; };
+		F693733225F4055700494011 /* MenuAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693733125F4055700494011 /* MenuAssembly.swift */; };
+		F693733625F409DD00494011 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693733525F409DD00494011 /* ProductViewController.swift */; };
+		F693733925F409F900494011 /* ProductViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693733825F409F900494011 /* ProductViewControllerProtocol.swift */; };
+		F693734125F40BEA00494011 /* ProductPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734025F40BEA00494011 /* ProductPresenter.swift */; };
+		F693734425F40BFF00494011 /* ProductPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734325F40BFF00494011 /* ProductPresenterProtocol.swift */; };
+		F693734725F40C1800494011 /* ProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734625F40C1800494011 /* ProductInteractor.swift */; };
+		F693734A25F40C2A00494011 /* ProductInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734925F40C2A00494011 /* ProductInteractorProtocol.swift */; };
+		F693734D25F40C4600494011 /* ProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734C25F40C4600494011 /* ProductRouter.swift */; };
+		F693735025F40C5800494011 /* ProductRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734F25F40C5800494011 /* ProductRouterProtocol.swift */; };
+		F693735325F40C7500494011 /* ProductAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735225F40C7500494011 /* ProductAssembly.swift */; };
+		F693735625F40C8300494011 /* ProductAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735525F40C8300494011 /* ProductAssemblyProtocol.swift */; };
+		F693735A25F4135C00494011 /* AddressAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735925F4135C00494011 /* AddressAssemblyProtocol.swift */; };
+		F693735D25F4137100494011 /* AddressAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735C25F4137100494011 /* AddressAssembly.swift */; };
+		F693736125F4138C00494011 /* AddressRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736025F4138C00494011 /* AddressRouterProtocol.swift */; };
+		F693736425F413A900494011 /* AddressRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736325F413A900494011 /* AddressRouter.swift */; };
+		F693736725F413B900494011 /* AddresstInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736625F413B900494011 /* AddresstInteractorProtocol.swift */; };
+		F693736A25F413C800494011 /* AddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736925F413C800494011 /* AddressInteractor.swift */; };
+		F693736D25F413DD00494011 /* AddressPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736C25F413DD00494011 /* AddressPresenterProtocol.swift */; };
+		F693737025F413EC00494011 /* AddressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736F25F413EC00494011 /* AddressPresenter.swift */; };
+		F693737325F413FC00494011 /* AddressViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693737225F413FC00494011 /* AddressViewControllerProtocol.swift */; };
+		F693737625F4141300494011 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693737525F4141300494011 /* AddressViewController.swift */; };
+		F693912825F631BE0039068E /* FoodTypeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693912725F631BE0039068E /* FoodTypeCollectionViewCell.swift */; };
+		F693912B25F697DD0039068E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693912A25F697DD0039068E /* UIView + Extension.swift */; };
+		F693912E25F6A7700039068E /* UICollectionVIew + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693912D25F6A7700039068E /* UICollectionVIew + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		418735F5CFEE1277BD02358E /* Pods_FoodDelivery.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FoodDelivery.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D89686553799BC382B066848 /* Pods-FoodDelivery.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDelivery.debug.xcconfig"; path = "Target Support Files/Pods-FoodDelivery/Pods-FoodDelivery.debug.xcconfig"; sourceTree = "<group>"; };
+		F448661929E52EE11C3E72CB /* Pods-FoodDelivery.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FoodDelivery.release.xcconfig"; path = "Target Support Files/Pods-FoodDelivery/Pods-FoodDelivery.release.xcconfig"; sourceTree = "<group>"; };
+		F63FD57525F535AA00C43CCF /* ScrollableHorizontalStackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScrollableHorizontalStackView.swift; sourceTree = "<group>"; };
+		F6788B3725F7495000D5FE22 /* FoodTypeButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeButton.swift; sourceTree = "<group>"; };
+		F6788B3A25F7B7B900D5FE22 /* MenuConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuConstants.swift; sourceTree = "<group>"; };
 		F69372F525F36FEA00494011 /* FoodDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69372F825F36FEA00494011 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F69372FA25F36FEA00494011 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		F69372FC25F36FEA00494011 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		F69372FF25F36FEA00494011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F693730125F36FEB00494011 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F693730425F36FEB00494011 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F693730625F36FEB00494011 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F693731525F403C300494011 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		F693731925F403E700494011 /* MenuViewControllerProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewControllerProtocol.swift; sourceTree = "<group>"; };
+		F693731C25F4041200494011 /* MenuPresenterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenterProtocol.swift; sourceTree = "<group>"; };
+		F693731F25F4042900494011 /* MenuPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuPresenter.swift; sourceTree = "<group>"; };
+		F693732225F4045F00494011 /* MenuInteractorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractorProtocol.swift; sourceTree = "<group>"; };
+		F693732525F4047600494011 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
+		F693732825F4049B00494011 /* MenuRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouterProtocol.swift; sourceTree = "<group>"; };
+		F693732B25F404AF00494011 /* MenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouter.swift; sourceTree = "<group>"; };
+		F693732E25F4053900494011 /* MenuAssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssemblyProtocol.swift; sourceTree = "<group>"; };
+		F693733125F4055700494011 /* MenuAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssembly.swift; sourceTree = "<group>"; };
+		F693733525F409DD00494011 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
+		F693733825F409F900494011 /* ProductViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewControllerProtocol.swift; sourceTree = "<group>"; };
+		F693734025F40BEA00494011 /* ProductPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPresenter.swift; sourceTree = "<group>"; };
+		F693734325F40BFF00494011 /* ProductPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPresenterProtocol.swift; sourceTree = "<group>"; };
+		F693734625F40C1800494011 /* ProductInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInteractor.swift; sourceTree = "<group>"; };
+		F693734925F40C2A00494011 /* ProductInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInteractorProtocol.swift; sourceTree = "<group>"; };
+		F693734C25F40C4600494011 /* ProductRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRouter.swift; sourceTree = "<group>"; };
+		F693734F25F40C5800494011 /* ProductRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRouterProtocol.swift; sourceTree = "<group>"; };
+		F693735225F40C7500494011 /* ProductAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductAssembly.swift; sourceTree = "<group>"; };
+		F693735525F40C8300494011 /* ProductAssemblyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductAssemblyProtocol.swift; sourceTree = "<group>"; };
+		F693735925F4135C00494011 /* AddressAssemblyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressAssemblyProtocol.swift; sourceTree = "<group>"; };
+		F693735C25F4137100494011 /* AddressAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressAssembly.swift; sourceTree = "<group>"; };
+		F693736025F4138C00494011 /* AddressRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressRouterProtocol.swift; sourceTree = "<group>"; };
+		F693736325F413A900494011 /* AddressRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressRouter.swift; sourceTree = "<group>"; };
+		F693736625F413B900494011 /* AddresstInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddresstInteractorProtocol.swift; sourceTree = "<group>"; };
+		F693736925F413C800494011 /* AddressInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressInteractor.swift; sourceTree = "<group>"; };
+		F693736C25F413DD00494011 /* AddressPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPresenterProtocol.swift; sourceTree = "<group>"; };
+		F693736F25F413EC00494011 /* AddressPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPresenter.swift; sourceTree = "<group>"; };
+		F693737225F413FC00494011 /* AddressViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewControllerProtocol.swift; sourceTree = "<group>"; };
+		F693737525F4141300494011 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
+		F693912725F631BE0039068E /* FoodTypeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FoodTypeCollectionViewCell.swift; sourceTree = "<group>"; };
+		F693912A25F697DD0039068E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		F693912D25F6A7700039068E /* UICollectionVIew + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UICollectionVIew + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,17 +103,48 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C9EBDE53C3D6FCE12B4C3DCE /* Pods_FoodDelivery.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		25978EF08F9038AF258E804C /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D89686553799BC382B066848 /* Pods-FoodDelivery.debug.xcconfig */,
+				F448661929E52EE11C3E72CB /* Pods-FoodDelivery.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		829A86D659A80C0ACFF3355C /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				418735F5CFEE1277BD02358E /* Pods_FoodDelivery.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F63FD57425F5346300C43CCF /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				F63FD57525F535AA00C43CCF /* ScrollableHorizontalStackView.swift */,
+				F693912725F631BE0039068E /* FoodTypeCollectionViewCell.swift */,
+				F693912A25F697DD0039068E /* UIView + Extension.swift */,
+				F693912D25F6A7700039068E /* UICollectionVIew + Extension.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
 		F69372EC25F36FEA00494011 = {
 			isa = PBXGroup;
 			children = (
 				F69372F725F36FEA00494011 /* FoodDelivery */,
 				F69372F625F36FEA00494011 /* Products */,
+				25978EF08F9038AF258E804C /* Pods */,
+				829A86D659A80C0ACFF3355C /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -56,15 +159,126 @@
 		F69372F725F36FEA00494011 /* FoodDelivery */ = {
 			isa = PBXGroup;
 			children = (
-				F69372F825F36FEA00494011 /* AppDelegate.swift */,
-				F69372FA25F36FEA00494011 /* SceneDelegate.swift */,
-				F69372FC25F36FEA00494011 /* ViewController.swift */,
-				F69372FE25F36FEA00494011 /* Main.storyboard */,
+				F693730E25F3F30B00494011 /* Application */,
+				F693733F25F40B9400494011 /* Modules */,
 				F693730125F36FEB00494011 /* Assets.xcassets */,
 				F693730325F36FEB00494011 /* LaunchScreen.storyboard */,
 				F693730625F36FEB00494011 /* Info.plist */,
 			);
 			path = FoodDelivery;
+			sourceTree = "<group>";
+		};
+		F693730E25F3F30B00494011 /* Application */ = {
+			isa = PBXGroup;
+			children = (
+				F69372F825F36FEA00494011 /* AppDelegate.swift */,
+				F69372FA25F36FEA00494011 /* SceneDelegate.swift */,
+			);
+			path = Application;
+			sourceTree = "<group>";
+		};
+		F693730F25F3F33400494011 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				F63FD57425F5346300C43CCF /* Views */,
+				F693737825F414AE00494011 /* Protocols */,
+				F693731525F403C300494011 /* MenuViewController.swift */,
+				F693731F25F4042900494011 /* MenuPresenter.swift */,
+				F693732525F4047600494011 /* MenuInteractor.swift */,
+				F693732B25F404AF00494011 /* MenuRouter.swift */,
+				F693733125F4055700494011 /* MenuAssembly.swift */,
+				F6788B3725F7495000D5FE22 /* FoodTypeButton.swift */,
+				F6788B3A25F7B7B900D5FE22 /* MenuConstants.swift */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		F693731025F3F4D900494011 /* Product */ = {
+			isa = PBXGroup;
+			children = (
+				F693737925F414B800494011 /* Protocols */,
+				F693733525F409DD00494011 /* ProductViewController.swift */,
+				F693734025F40BEA00494011 /* ProductPresenter.swift */,
+				F693734625F40C1800494011 /* ProductInteractor.swift */,
+				F693734C25F40C4600494011 /* ProductRouter.swift */,
+				F693735225F40C7500494011 /* ProductAssembly.swift */,
+			);
+			path = Product;
+			sourceTree = "<group>";
+		};
+		F693731225F3F8C900494011 /* Address */ = {
+			isa = PBXGroup;
+			children = (
+				F693737A25F414C100494011 /* Protocols */,
+				F693737525F4141300494011 /* AddressViewController.swift */,
+				F693736F25F413EC00494011 /* AddressPresenter.swift */,
+				F693736925F413C800494011 /* AddressInteractor.swift */,
+				F693736325F413A900494011 /* AddressRouter.swift */,
+				F693735C25F4137100494011 /* AddressAssembly.swift */,
+			);
+			path = Address;
+			sourceTree = "<group>";
+		};
+		F693731325F3F92800494011 /* Cart */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cart;
+			sourceTree = "<group>";
+		};
+		F693731425F3FE6300494011 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
+		F693733F25F40B9400494011 /* Modules */ = {
+			isa = PBXGroup;
+			children = (
+				F693730F25F3F33400494011 /* Menu */,
+				F693731025F3F4D900494011 /* Product */,
+				F693731225F3F8C900494011 /* Address */,
+				F693731325F3F92800494011 /* Cart */,
+				F693731425F3FE6300494011 /* Order */,
+			);
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		F693737825F414AE00494011 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F693731925F403E700494011 /* MenuViewControllerProtocol.swift */,
+				F693731C25F4041200494011 /* MenuPresenterProtocol.swift */,
+				F693732225F4045F00494011 /* MenuInteractorProtocol.swift */,
+				F693732825F4049B00494011 /* MenuRouterProtocol.swift */,
+				F693732E25F4053900494011 /* MenuAssemblyProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F693737925F414B800494011 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F693733825F409F900494011 /* ProductViewControllerProtocol.swift */,
+				F693734325F40BFF00494011 /* ProductPresenterProtocol.swift */,
+				F693734925F40C2A00494011 /* ProductInteractorProtocol.swift */,
+				F693734F25F40C5800494011 /* ProductRouterProtocol.swift */,
+				F693735525F40C8300494011 /* ProductAssemblyProtocol.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F693737A25F414C100494011 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F693737225F413FC00494011 /* AddressViewControllerProtocol.swift */,
+				F693736C25F413DD00494011 /* AddressPresenterProtocol.swift */,
+				F693736625F413B900494011 /* AddresstInteractorProtocol.swift */,
+				F693736025F4138C00494011 /* AddressRouterProtocol.swift */,
+				F693735925F4135C00494011 /* AddressAssemblyProtocol.swift */,
+			);
+			path = Protocols;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +288,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = F693730925F36FEB00494011 /* Build configuration list for PBXNativeTarget "FoodDelivery" */;
 			buildPhases = (
+				396BC13686EA749A9ACBB0D7 /* [CP] Check Pods Manifest.lock */,
 				F69372F125F36FEA00494011 /* Sources */,
 				F69372F225F36FEA00494011 /* Frameworks */,
 				F69372F325F36FEA00494011 /* Resources */,
+				9148BC1D3C029FDBC22A5E69 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -126,34 +342,102 @@
 			files = (
 				F693730525F36FEB00494011 /* LaunchScreen.storyboard in Resources */,
 				F693730225F36FEB00494011 /* Assets.xcassets in Resources */,
-				F693730025F36FEA00494011 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		396BC13686EA749A9ACBB0D7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FoodDelivery-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9148BC1D3C029FDBC22A5E69 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodDelivery/Pods-FoodDelivery-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-FoodDelivery/Pods-FoodDelivery-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FoodDelivery/Pods-FoodDelivery-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		F69372F125F36FEA00494011 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F69372FD25F36FEA00494011 /* ViewController.swift in Sources */,
+				F693732625F4047600494011 /* MenuInteractor.swift in Sources */,
+				F693731A25F403E700494011 /* MenuViewControllerProtocol.swift in Sources */,
+				F693734A25F40C2A00494011 /* ProductInteractorProtocol.swift in Sources */,
+				F693735A25F4135C00494011 /* AddressAssemblyProtocol.swift in Sources */,
+				F693736A25F413C800494011 /* AddressInteractor.swift in Sources */,
+				F693735325F40C7500494011 /* ProductAssembly.swift in Sources */,
+				F693734425F40BFF00494011 /* ProductPresenterProtocol.swift in Sources */,
+				F693735D25F4137100494011 /* AddressAssembly.swift in Sources */,
+				F693732325F4045F00494011 /* MenuInteractorProtocol.swift in Sources */,
+				F693736725F413B900494011 /* AddresstInteractorProtocol.swift in Sources */,
+				F693735025F40C5800494011 /* ProductRouterProtocol.swift in Sources */,
+				F693733625F409DD00494011 /* ProductViewController.swift in Sources */,
+				F693736D25F413DD00494011 /* AddressPresenterProtocol.swift in Sources */,
+				F693733925F409F900494011 /* ProductViewControllerProtocol.swift in Sources */,
 				F69372F925F36FEA00494011 /* AppDelegate.swift in Sources */,
 				F69372FB25F36FEA00494011 /* SceneDelegate.swift in Sources */,
+				F693731625F403C300494011 /* MenuViewController.swift in Sources */,
+				F693734725F40C1800494011 /* ProductInteractor.swift in Sources */,
+				F6788B3B25F7B7B900D5FE22 /* MenuConstants.swift in Sources */,
+				F693912B25F697DD0039068E /* UIView + Extension.swift in Sources */,
+				F693731D25F4041200494011 /* MenuPresenterProtocol.swift in Sources */,
+				F693736125F4138C00494011 /* AddressRouterProtocol.swift in Sources */,
+				F693912825F631BE0039068E /* FoodTypeCollectionViewCell.swift in Sources */,
+				F693736425F413A900494011 /* AddressRouter.swift in Sources */,
+				F6788B3825F7495000D5FE22 /* FoodTypeButton.swift in Sources */,
+				F693734125F40BEA00494011 /* ProductPresenter.swift in Sources */,
+				F693737025F413EC00494011 /* AddressPresenter.swift in Sources */,
+				F693732F25F4053900494011 /* MenuAssemblyProtocol.swift in Sources */,
+				F693732C25F404AF00494011 /* MenuRouter.swift in Sources */,
+				F693734D25F40C4600494011 /* ProductRouter.swift in Sources */,
+				F693733225F4055700494011 /* MenuAssembly.swift in Sources */,
+				F63FD57625F535AA00C43CCF /* ScrollableHorizontalStackView.swift in Sources */,
+				F693732025F4042900494011 /* MenuPresenter.swift in Sources */,
+				F693737325F413FC00494011 /* AddressViewControllerProtocol.swift in Sources */,
+				F693737625F4141300494011 /* AddressViewController.swift in Sources */,
+				F693735625F40C8300494011 /* ProductAssemblyProtocol.swift in Sources */,
+				F693912E25F6A7700039068E /* UICollectionVIew + Extension.swift in Sources */,
+				F693732925F4049B00494011 /* MenuRouterProtocol.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		F69372FE25F36FEA00494011 /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				F69372FF25F36FEA00494011 /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
 		F693730325F36FEB00494011 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -283,6 +567,7 @@
 		};
 		F693730A25F36FEB00494011 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D89686553799BC382B066848 /* Pods-FoodDelivery.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -301,6 +586,7 @@
 		};
 		F693730B25F36FEB00494011 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F448661929E52EE11C3E72CB /* Pods-FoodDelivery.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

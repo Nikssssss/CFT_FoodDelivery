@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MenuRouterProtocol: class {
-    
+    func showProductScene(using menuProduct: MenuProduct)
 }

@@ -8,5 +8,8 @@
 import Foundation
 
 protocol MenuInteractorProtocol: class {
-    
+    func downloadProductsInfo(completion: @escaping (ProductTypes?, [MenuProduct]?) -> Void)
+    func getMenuProducts(typed type: String) -> [MenuProduct]?
+    func changeProductInCartState(productTag: Int, productType: ProductType) -> ProductInCartState
+    func getInCartProducts(by productType: ProductType) -> [MenuProduct]
 }

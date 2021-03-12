@@ -16,5 +16,7 @@ class MenuRouter {
 }
 
 extension MenuRouter: MenuRouterProtocol {
-    
+    func showProductScene(using menuProduct: MenuProduct) {
+        //TODO: create segue to product module using new navigation controller
+    }
 }

@@ -1,34 +1,105 @@
 //
 //  MenuViewController.swift
-//  FoodDelivery
+//  ProductDelivery
 //
 //  Created by Никита Гусев on 07.03.2021.
 //
 
 import UIKit
 import SnapKit
+import SDWebImage
 
 class MenuViewController: UIViewController {
     internal var presenter: MenuPresenterProtocol!
     internal let assembly: MenuAssemblyProtocol = MenuAssembly()
     
-    private let foodTypeStackView = ScrollableHorizontalStackView()
-    private let foodTypeNames = ["Пицца", "Бургеры", "Суши", "Напитки", "Десерты", "Закуски"]
-    private var foodTypeButtons = [FoodTypeButton]()
+    private let productTypeStackView = ScrollableHorizontalStackView()
+    private var productTypeButtons = [ProductTypeButton]()
+    private var currentProductType: ProductType!
+    
+    private let productsTableView = UITableView()
+    private var productList: [MenuProduct]!
+    private var addToCartButtons = [UIButton]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        for name in foodTypeNames {
-            let button = self.createFoodTypeButton(title: name,
-                                                   titleFont: MenuConstants.Fonts.foodTypeButton)
-            foodTypeButtons.append(FoodTypeButton(button: button, isActive: name == "Пицца"))
-        }
-        self.setupView()
+        assembly.assemble(with: self)
+        presenter.configureView()
     }
 }
 
 extension MenuViewController: MenuViewControllerProtocol {
+    func configureView(withProductTypes productTypes: ProductTypes, withProductList productList: [MenuProduct]){
+        self.productList = productList
+        for type in productTypes.productTypes {
+            let button = self.createProductTypeButton(title: type,
+                                                   titleFont: MenuConstants.Fonts.productTypeButton)
+            productTypeButtons.append(ProductTypeButton(button: button, isActive: type == "Пицца"))
+        }
+        self.setupView()
+        self.currentProductType = .pizza
+    }
     
+    func replaceProductList(to productList: [MenuProduct]) {
+        self.productList = productList
+        self.createAddToCartButtons()
+        self.productsTableView.reloadData()
+    }
+    
+    func replaceActiveTypeButtonByButton(titled title: String) {
+        self.replaceActiveProductTypeButtonByButton(titled: title)
+        self.currentProductType = ProductType(rawValue: title)
+    }
+    
+    func setInCartState(for productTag: Int, productType: ProductType) {
+        if productType == self.currentProductType {
+            print("setInCartState \(productTag)")
+            self.addToCartButtons[productTag].isSelected = true
+            self.productsTableView.reloadData()
+        }
+    }
+    
+    func setNotInCartState(for productTag: Int, productType: ProductType) {
+        if productType == self.currentProductType {
+            print("setNotInCartState \(productTag)")
+            self.addToCartButtons[productTag].isSelected = false
+            self.productsTableView.reloadData()
+        }
+    }
+    
+    func setInCartProducts(using menuProducts: [MenuProduct]) {
+        for inCartProduct in menuProducts {
+            for index in 0..<self.productList.count {
+                if inCartProduct.name == self.productList[index].name {
+                    addToCartButtons[index].isSelected = true
+                }
+            }
+        }
+        self.productsTableView.reloadData()
+    }
+}
+
+extension MenuViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return productList.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: ProductTableViewCell.identifier,
+                                                 for: indexPath) as! ProductTableViewCell
+        cell.productNameLabel.text = productList[indexPath.row].name
+        cell.productPriceLabel.text = productList[indexPath.row].price
+        cell.productImageView.sd_setImage(with: URL(string: productList[indexPath.row].imageURL),
+                                          placeholderImage: UIImage(named: "placeholder.png"))
+        cell.setAddToCartButton(button: self.addToCartButtons[indexPath.row])
+        return cell
+    }
+}
+
+extension MenuViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return MenuConstants.Layout.productsTableViewRowHeight
+    }
 }
 
 private extension MenuViewController {
@@ -36,76 +107,134 @@ private extension MenuViewController {
     // MARK: appearance & layout methods
     
     func setupView(){
-        self.navigationController?.navigationBar.isTranslucent = false
         self.view.backgroundColor = MenuConstants.Colors.viewBackground
-        self.setupFoodTypeStackView()
+        self.setupNavigationBar()
+        self.setupProductTypeStackView()
+        self.setupProductsTableView()
     }
     
-    func setupFoodTypeStackView(){
-        self.view.addSubview(foodTypeStackView)
-        self.foodTypeStackView.setup(padding: MenuConstants.Layout.foodTypeStackViewPadding)
-        self.foodTypeStackView.snp.makeConstraints { (make) in
+    func setupNavigationBar() {
+        let titleLabel = UILabel()
+        titleLabel.text = "Food Delivery"
+        titleLabel.font = UIFont(name: "Chalkboard SE Bold", size: 23)
+        titleLabel.textColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
+        self.navigationItem.titleView = titleLabel
+        self.navigationController?.navigationBar.isTranslucent = false
+    }
+    
+    func setupProductTypeStackView(){
+        self.view.addSubview(self.productTypeStackView)
+        self.productTypeStackView.setup(padding: MenuConstants.Layout.productTypeStackViewPadding)
+        self.productTypeStackView.snp.makeConstraints { (make) in
             make.top.right.left.equalToSuperview()
-            make.height.equalTo(MenuConstants.Layout.foodTypeStackViewHeight)
+            make.height.equalTo(MenuConstants.Layout.productTypeStackViewHeight)
         }
-        self.foodTypeStackView.interItemSpacing = MenuConstants.Layout.foodTypeStackViewInterItem
-        self.foodTypeStackView.addBottomBorder(color: MenuConstants.Colors.foodTypeStackViewBorder,
-                                               width: MenuConstants.Layout.foodTypeStackViewBorderWidth)
-        for foodButton in foodTypeButtons {
-            self.foodTypeStackView.addSubview(subview: foodButton.button)
-            if foodButton.isActive {
-                self.makeFoodTypeButtonActive(foodButton: foodButton)
+        self.productTypeStackView.interItemSpacing = MenuConstants.Layout.productTypeStackViewInterItem
+        self.productTypeStackView.addBottomBorder(color: MenuConstants.Colors.productTypeStackViewBorder,
+                                               width: MenuConstants.Layout.productTypeStackViewBorderWidth)
+        for productButton in self.productTypeButtons {
+            self.productTypeStackView.addSubview(subview: productButton.button)
+            if productButton.isActive {
+                self.makeProductTypeButtonActive(productButton: productButton)
             } else {
-                self.makeFoodTypeButtonInactive(foodButton: foodButton)
+                self.makeProductTypeButtonInactive(productButton: productButton)
             }
         }
     }
     
+    func setupProductsTableView(){
+        self.view.addSubview(self.productsTableView)
+        self.productsTableView.snp.makeConstraints { (make) in
+            make.top.equalTo(productTypeStackView.snp.bottom).offset(MenuConstants.Layout.productsTableViewTop)
+            make.left.right.bottom.equalToSuperview()
+        }
+        self.productsTableView.register(ProductTableViewCell.self,
+                                        forCellReuseIdentifier: ProductTableViewCell.identifier)
+        self.createAddToCartButtons()
+        self.productsTableView.dataSource = self
+        self.productsTableView.delegate = self
+        self.productsTableView.separatorStyle = .none
+    }
+    
     // MARK: action methods
     
-    func createFoodTypeButton(title: String,
+    func createProductTypeButton(title: String,
                               titleFont: UIFont) -> UIButton{
         let button = UIButton()
         button.setTitle(title, for: .normal)
         button.titleLabel?.font = titleFont
         button.snp.makeConstraints { (make) in
-            make.height.equalTo(MenuConstants.Layout.foodTypeButtonHeight)
+            make.height.equalTo(MenuConstants.Layout.productTypeButtonHeight)
         }
-        button.addTarget(self, action: #selector(foodTypeButtonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(productTypeButtonPressed), for: .touchUpInside)
         return button
     }
     
-    func makeFoodTypeButtonActive(foodButton: FoodTypeButton) {
-        foodButton.button.setTitleColor(MenuConstants.Colors.foodTypeActiveButton, for: .normal)
-        foodButton.isActive = true
-        if let bottomBorder = foodButton.border {
-            foodButton.button.addSubview(bottomBorder)
+    func makeProductTypeButtonActive(productButton: ProductTypeButton) {
+        productButton.button.setTitleColor(MenuConstants.Colors.productTypeActiveButton, for: .normal)
+        productButton.isActive = true
+        if let bottomBorder = productButton.border {
+            productButton.button.addSubview(bottomBorder)
         } else {
-            foodButton.border = foodButton.button.addBottomBorderWithColor(color: MenuConstants.Colors.foodTypeButtonBottomBorder,
-                                                                           width: MenuConstants.Layout.foodTypeButtonBottomBorderWidth)
+            productButton.border =
+                productButton.button.addBottomBorderWithColor(color: MenuConstants.Colors.productTypeButtonBottomBorder,
+                                                              width: MenuConstants.Layout.productTypeButtonBottomBorderWidth)
         }
     }
     
-    func makeFoodTypeButtonInactive(foodButton: FoodTypeButton) {
-        foodButton.button.setTitleColor(MenuConstants.Colors.foodTypeInactiveButton, for: .normal)
-        foodButton.isActive = false
-        foodButton.border?.removeFromSuperview()
+    func makeProductTypeButtonInactive(productButton: ProductTypeButton) {
+        productButton.button.setTitleColor(MenuConstants.Colors.productTypeInactiveButton, for: .normal)
+        productButton.isActive = false
+        productButton.border?.removeFromSuperview()
     }
     
-    func replaceActiveFoodTypeButtonByButton(titled title: String){
-        for foodButton in foodTypeButtons {
-            if foodButton.button.title(for: .normal) == title {
-                self.makeFoodTypeButtonActive(foodButton: foodButton)
-            } else if foodButton.isActive {
-                self.makeFoodTypeButtonInactive(foodButton: foodButton)
+    func replaceActiveProductTypeButtonByButton(titled title: String){
+        for productButton in self.productTypeButtons {
+            if productButton.button.title(for: .normal) == title {
+                self.makeProductTypeButtonActive(productButton: productButton)
+            } else if productButton.isActive {
+                self.makeProductTypeButtonInactive(productButton: productButton)
             }
         }
     }
     
-    @objc func foodTypeButtonPressed(sender: UIButton){
-        guard let title = sender.title(for: .normal) else {
-            return
+    func getActiveProductTypeButtonTitle() -> String {
+        for button in productTypeButtons {
+            if button.isActive {
+                return button.button.title(for: .normal)!
+            }
         }
-        replaceActiveFoodTypeButtonByButton(titled: title)
+        return String()
+    }
+    
+    @objc func productTypeButtonPressed(sender: UIButton){
+        self.presenter.productTypeButtonPressed(titled: sender.title(for: .normal)!,
+                                                currentActiveButtonTitle: self.getActiveProductTypeButtonTitle())
+    }
+    
+    func createAddToCartButtons() {
+        self.addToCartButtons.removeAll()
+        for index in 0..<productList.count{
+            let button = UIButton()
+            let imageConfig = UIImage.SymbolConfiguration(pointSize: 28, weight: .light, scale: .medium)
+            let notInCartImage = UIImage(systemName: "cart.badge.plus")?
+                .withTintColor(MenuConstants.Colors.addToCartButtonColor)
+                .withRenderingMode(.alwaysOriginal)
+                .withConfiguration(imageConfig)
+            let inCartImage = UIImage(systemName: "cart.fill.badge.minus")?
+                .withTintColor(MenuConstants.Colors.addToCartButtonColor)
+                .withRenderingMode(.alwaysOriginal)
+                .withConfiguration(imageConfig)
+            button.setImage(notInCartImage, for: .normal)
+            button.setImage(inCartImage, for: .selected)
+            button.addTarget(self, action: #selector(self.addToCartButtonPressed(sender:)), for: .touchUpInside)
+            button.tag = index
+            self.addToCartButtons.append(button)
+        }
+    }
+    
+    @objc func addToCartButtonPressed(sender: UIButton) {
+        self.presenter.addToCartButtonPressed(tagged: sender.tag,
+                                              currentProductType: self.currentProductType)
     }
 }

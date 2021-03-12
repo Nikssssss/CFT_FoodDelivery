@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ProductViewControllerProtocol: class {
-    
+    func configureView(isProductInCart: Bool)
+    func changeProductInCartState(to state: ProductInCartState)
 }

@@ -8,5 +8,5 @@
 import Foundation
 
 protocol MenuAssemblyProtocol: class {
-    func assemble(with viewController: MenuViewController)
+    func assemble(with viewController: MenuViewController, andWith addStorageClosure: (() -> Void)!)
 }

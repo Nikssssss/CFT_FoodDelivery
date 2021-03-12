@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ProductPresenterProtocol: class {
-    
+    func configureView(with menuProduct: MenuProduct)
+    func productOrderButtonPressed(menuProduct: MenuProduct)
 }

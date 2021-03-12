@@ -10,11 +10,25 @@ import Foundation
 class ProductInteractor {
     weak var presenter: ProductPresenterProtocol!
     
+    private let storageService = ProductStorageService()
+    
     init(presenter: ProductPresenter) {
         self.presenter = presenter
     }
 }
 
 extension ProductInteractor: ProductInteractorProtocol {
+    func checkInCartProductLocating(menuProduct: MenuProduct) -> Bool{
+        let isInCart = self.storageService.checkInCartProductLocating(menuProduct: menuProduct)
+        if isInCart {
+            return true
+        } else {
+            return false
+        }
+    }
     
+    func changeProductInCartState(menuProduct: MenuProduct) -> ProductInCartState {
+        let productInCartState = self.storageService.changeProductInCartState(menuProduct: menuProduct)
+        return productInCartState
+    }
 }

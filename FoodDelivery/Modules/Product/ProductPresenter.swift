@@ -18,5 +18,13 @@ class ProductPresenter {
 }
 
 extension ProductPresenter: ProductPresenterProtocol {
+    func configureView(with menuProduct: MenuProduct) {
+        let isProductInCart = self.interactor.checkInCartProductLocating(menuProduct: menuProduct)
+        self.viewController.configureView(isProductInCart: isProductInCart)
+    }
     
+    func productOrderButtonPressed(menuProduct: MenuProduct) {
+        let productInCartState = self.interactor.changeProductInCartState(menuProduct: menuProduct)
+        self.viewController.changeProductInCartState(to: productInCartState)
+    }
 }

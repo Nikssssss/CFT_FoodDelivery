@@ -9,12 +9,15 @@ import Foundation
 
 class MenuInteractor {
     weak var presenter: MenuPresenterProtocol!
-    let storageService = StorageService()
-    let serverService: MenuServerService
+    var storageService: StorageService! {
+        didSet {
+            self.serverService = MenuServerService(storageService: self.storageService)
+        }
+    }
+    var serverService: MenuServerService!
     
     init(presenter: MenuPresenter) {
         self.presenter = presenter
-        self.serverService = MenuServerService(storageService: self.storageService)
     }
 }
 

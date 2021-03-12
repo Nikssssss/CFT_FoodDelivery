@@ -8,5 +8,6 @@
 import Foundation
 
 protocol ProductInteractorProtocol: class {
-    
+    func checkInCartProductLocating(menuProduct: MenuProduct) -> Bool
+    func changeProductInCartState(menuProduct: MenuProduct) -> ProductInCartState
 }

@@ -8,7 +8,7 @@
 import Foundation
 
 class MenuRouter {
-    weak var viewController: MenuViewControllerProtocol!
+    weak var viewController: MenuViewController!
     
     init(viewController: MenuViewController) {
         self.viewController = viewController
@@ -17,6 +17,10 @@ class MenuRouter {
 
 extension MenuRouter: MenuRouterProtocol {
     func showProductScene(using menuProduct: MenuProduct) {
-        //TODO: create segue to product module using new navigation controller
+        let productViewController = ProductViewController()
+        productViewController.menuProduct = menuProduct
+        productViewController.delegate = self.viewController
+        let navigationController = self.viewController.createNavigationController(with: productViewController)
+        self.viewController.navigationController?.present(navigationController, animated: true, completion: nil)
     }
 }

@@ -12,6 +12,7 @@ import SDWebImage
 class MenuViewController: UIViewController {
     internal var presenter: MenuPresenterProtocol!
     internal let assembly: MenuAssemblyProtocol = MenuAssembly()
+    internal var addStorageService: (() -> Void)!
     
     private let productTypeStackView = ScrollableHorizontalStackView()
     private var productTypeButtons = [ProductTypeButton]()
@@ -23,7 +24,7 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assembly.assemble(with: self)
+        assembly.assemble(with: self, andWith: self.addStorageService)
         presenter.configureView()
     }
 }
@@ -77,6 +78,10 @@ extension MenuViewController: MenuViewControllerProtocol {
         }
         self.productsTableView.reloadData()
     }
+    
+    func createNavigationController(with rootViewController: UIViewController) -> UINavigationController {
+        return UINavigationController(rootViewController: rootViewController)
+    }
 }
 
 extension MenuViewController: UITableViewDataSource {
@@ -99,6 +104,26 @@ extension MenuViewController: UITableViewDataSource {
 extension MenuViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return MenuConstants.Layout.productsTableViewRowHeight
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.presenter.productCellPressed(with: productList[indexPath.row])
+    }
+}
+
+extension MenuViewController: ProductViewControllerDelegate {
+    func productSceneWasClosed(with menuProduct: MenuProduct,
+                               withAddToCartButtonState state: ProductInCartState) {
+        for index in 0..<productList.count {
+            if productList[index].name == menuProduct.name {
+                switch state {
+                case .addedToCart:
+                    addToCartButtons[index].isSelected = true
+                case .removedFromCart:
+                    addToCartButtons[index].isSelected = false
+                }
+            }
+        }
     }
 }
 

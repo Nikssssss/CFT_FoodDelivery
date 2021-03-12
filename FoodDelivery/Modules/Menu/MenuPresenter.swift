@@ -45,7 +45,7 @@ extension MenuPresenter: MenuPresenterProtocol {
     }
     
     func productCellPressed(with menuProduct: MenuProduct) {
-        
+        self.router.showProductScene(using: menuProduct)
     }
     
     func addToCartButtonPressed(tagged tag: Int, currentProductType: ProductType) {
@@ -57,5 +57,9 @@ extension MenuPresenter: MenuPresenterProtocol {
         case .removedFromCart:
             self.viewController.setNotInCartState(for: tag, productType: currentProductType)
         }
+    }
+    
+    func addStorageService(storageService: StorageService) {
+        self.interactor.storageService = storageService
     }
 }

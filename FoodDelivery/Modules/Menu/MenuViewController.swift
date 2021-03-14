@@ -11,8 +11,6 @@ import SDWebImage
 
 class MenuViewController: UIViewController {
     internal var presenter: MenuPresenterProtocol!
-    internal let assembly: MenuAssemblyProtocol = MenuAssembly()
-    internal var addStorageService: (() -> Void)!
     
     private let productTypeStackView = ScrollableHorizontalStackView()
     private var productTypeButtons = [ProductTypeButton]()
@@ -24,7 +22,6 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.assembly.assemble(with: self, andWith: self.addStorageService)
         self.presenter.configureView()
     }
     

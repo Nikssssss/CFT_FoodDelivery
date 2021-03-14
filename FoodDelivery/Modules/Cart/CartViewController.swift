@@ -9,8 +9,6 @@ import UIKit
 
 class CartViewController: UIViewController {
     var presenter: CartPresenterProtocol!
-    let assebmly: CartAssemblyProtocol = CartAssembly()
-    var addStorageService: (() -> Void)!
     
     private let productsTableView = UITableView()
     private let cartCheckoutView = CartCheckoutView()
@@ -20,7 +18,6 @@ class CartViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.assebmly.assemble(with: self, andWith: addStorageService)
         self.presenter.configureView()
     }
 

@@ -45,7 +45,7 @@ extension MenuPresenter: MenuPresenterProtocol {
     }
     
     func productCellPressed(with menuProduct: MenuProduct) {
-        self.router.showProductScene(using: menuProduct)
+        self.router.showProductScene(using: menuProduct, and: self.interactor.storageService)
     }
     
     func addToCartButtonPressed(tagged tag: Int, currentProductType: ProductType) {
@@ -66,6 +66,5 @@ extension MenuPresenter: MenuPresenterProtocol {
     func viewWillAppear(productType: ProductType) {
         let inCartProducts = self.interactor.getInCartProducts(by: productType)
         self.viewController.setInCartProducts(using: inCartProducts)
-        //TODO: get all not in cart products
     }
 }

@@ -7,15 +7,23 @@
 
 import Foundation
 
-class ProductAssembly: ProductAssemblyProtocol {
-    func assemble(with viewController: ProductViewController) {
+class ProductAssembly {
+    class func assemble(menuProduct: MenuProduct,
+                        delegate: ProductViewControllerDelegate,
+                        storageService: StorageService) -> ProductViewController {
+        let viewController = ProductViewController()
         let presenter = ProductPresenter(viewController: viewController)
         let interactor = ProductInteractor(presenter: presenter)
-        let router = ProductRouter(viewController: viewController)
         
         viewController.presenter = presenter
         presenter.interactor = interactor
-        presenter.router = router
+        
+        viewController.menuProduct = menuProduct
+        viewController.delegate = delegate
+        
+        interactor.storageService = storageService
+        
+        return viewController
     }
 }
 

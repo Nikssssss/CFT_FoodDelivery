@@ -10,7 +10,6 @@ import Foundation
 class ProductPresenter {
     weak var viewController: ProductViewControllerProtocol!
     var interactor: ProductInteractorProtocol!
-    var router: ProductRouterProtocol!
     
     init(viewController: ProductViewController) {
         self.viewController = viewController

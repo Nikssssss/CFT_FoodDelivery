@@ -7,8 +7,9 @@
 
 import Foundation
 
-class MenuAssembly: MenuAssemblyProtocol {
-    func assemble(with viewController: MenuViewController, andWith addStorageClosure: (() -> Void)!) {
+class MenuAssembly {
+    class func assemble(with storageService: StorageService) -> MenuViewController {
+        let viewController = MenuViewController()
         let presenter = MenuPresenter(viewController: viewController)
         let interactor = MenuInteractor(presenter: presenter)
         let router = MenuRouter(viewController: viewController)
@@ -17,7 +18,9 @@ class MenuAssembly: MenuAssemblyProtocol {
         presenter.interactor = interactor
         presenter.router = router
         
-        addStorageClosure()
+        interactor.storageService = storageService
+        
+        return viewController
     }
 }
 

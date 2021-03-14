@@ -10,7 +10,6 @@ import SDWebImage
 
 class ProductViewController: UIViewController {
     var presenter: ProductPresenterProtocol!
-    let assembly: ProductAssemblyProtocol = ProductAssembly()
     
     var menuProduct: MenuProduct!
     
@@ -24,7 +23,6 @@ class ProductViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.assembly.assemble(with: self)
         self.presenter.configureView(with: self.menuProduct)
     }
     

@@ -16,11 +16,10 @@ class MenuRouter {
 }
 
 extension MenuRouter: MenuRouterProtocol {
-    func showProductScene(using menuProduct: MenuProduct) {
-        let productViewController = ProductViewController()
-        productViewController.menuProduct = menuProduct
-        productViewController.delegate = self.viewController
-        let navigationController = self.viewController.createNavigationController(with: productViewController)
-        self.viewController.navigationController?.present(navigationController, animated: true, completion: nil)
+    func showProductScene(using menuProduct: MenuProduct, and storageService: StorageService) {
+        let productViewController = ProductAssembly.assemble(menuProduct: menuProduct,
+                                                             delegate: self.viewController,
+                                                             storageService: storageService)
+        self.viewController.navigationController?.present(productViewController, animated: true, completion: nil)
     }
 }

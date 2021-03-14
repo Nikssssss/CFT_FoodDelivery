@@ -7,8 +7,9 @@
 
 import Foundation
 
-class CartAssembly: CartAssemblyProtocol {
-    func assemble(with viewController: CartViewController, andWith addStorageClosure: (() -> Void)!) {
+class CartAssembly {
+    class func assemble(with storageService: StorageService) -> CartViewController {
+        let viewController = CartViewController()
         let presenter = CartPresenter(viewController: viewController)
         let interactor = CartInteractor(presenter: presenter)
         let router = CartRouter(viewController: viewController)
@@ -17,7 +18,9 @@ class CartAssembly: CartAssemblyProtocol {
         presenter.interactor = interactor
         presenter.router = router
         
-        addStorageClosure()
+        interactor.storageService = storageService
+        
+        return viewController
     }
 }
 

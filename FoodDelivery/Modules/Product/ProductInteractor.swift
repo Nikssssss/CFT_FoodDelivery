@@ -10,7 +10,7 @@ import Foundation
 class ProductInteractor {
     weak var presenter: ProductPresenterProtocol!
     
-    private let storageService = ProductStorageService()
+    var storageService: StorageService!
     
     init(presenter: ProductPresenter) {
         self.presenter = presenter

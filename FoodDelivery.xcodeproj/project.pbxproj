@@ -34,7 +34,7 @@
 		F685EE1C25FA49A600493CB9 /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685EE1B25FA49A600493CB9 /* StorageService.swift */; };
 		F685EE1F25FA806800493CB9 /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685EE1E25FA806800493CB9 /* MainTabBarController.swift */; };
 		F685EE2225FA83BA00493CB9 /* CartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685EE2125FA83BA00493CB9 /* CartViewController.swift */; };
-		F685EE2625FA953700493CB9 /* Enumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685EE2525FA953700493CB9 /* Enumerations.swift */; };
+		F685EE2625FA953700493CB9 /* MenuEnumerations.swift in Sources */ = {isa = PBXBuildFile; fileRef = F685EE2525FA953700493CB9 /* MenuEnumerations.swift */; };
 		F69372F925F36FEA00494011 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69372F825F36FEA00494011 /* AppDelegate.swift */; };
 		F69372FB25F36FEA00494011 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F69372FA25F36FEA00494011 /* SceneDelegate.swift */; };
 		F693730225F36FEB00494011 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F693730125F36FEB00494011 /* Assets.xcassets */; };
@@ -47,7 +47,6 @@
 		F693732625F4047600494011 /* MenuInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732525F4047600494011 /* MenuInteractor.swift */; };
 		F693732925F4049B00494011 /* MenuRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732825F4049B00494011 /* MenuRouterProtocol.swift */; };
 		F693732C25F404AF00494011 /* MenuRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732B25F404AF00494011 /* MenuRouter.swift */; };
-		F693732F25F4053900494011 /* MenuAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693732E25F4053900494011 /* MenuAssemblyProtocol.swift */; };
 		F693733225F4055700494011 /* MenuAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693733125F4055700494011 /* MenuAssembly.swift */; };
 		F693733625F409DD00494011 /* ProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693733525F409DD00494011 /* ProductViewController.swift */; };
 		F693733925F409F900494011 /* ProductViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693733825F409F900494011 /* ProductViewControllerProtocol.swift */; };
@@ -55,20 +54,7 @@
 		F693734425F40BFF00494011 /* ProductPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734325F40BFF00494011 /* ProductPresenterProtocol.swift */; };
 		F693734725F40C1800494011 /* ProductInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734625F40C1800494011 /* ProductInteractor.swift */; };
 		F693734A25F40C2A00494011 /* ProductInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734925F40C2A00494011 /* ProductInteractorProtocol.swift */; };
-		F693734D25F40C4600494011 /* ProductRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734C25F40C4600494011 /* ProductRouter.swift */; };
-		F693735025F40C5800494011 /* ProductRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693734F25F40C5800494011 /* ProductRouterProtocol.swift */; };
 		F693735325F40C7500494011 /* ProductAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735225F40C7500494011 /* ProductAssembly.swift */; };
-		F693735625F40C8300494011 /* ProductAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735525F40C8300494011 /* ProductAssemblyProtocol.swift */; };
-		F693735A25F4135C00494011 /* AddressAssemblyProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735925F4135C00494011 /* AddressAssemblyProtocol.swift */; };
-		F693735D25F4137100494011 /* AddressAssembly.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693735C25F4137100494011 /* AddressAssembly.swift */; };
-		F693736125F4138C00494011 /* AddressRouterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736025F4138C00494011 /* AddressRouterProtocol.swift */; };
-		F693736425F413A900494011 /* AddressRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736325F413A900494011 /* AddressRouter.swift */; };
-		F693736725F413B900494011 /* AddresstInteractorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736625F413B900494011 /* AddresstInteractorProtocol.swift */; };
-		F693736A25F413C800494011 /* AddressInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736925F413C800494011 /* AddressInteractor.swift */; };
-		F693736D25F413DD00494011 /* AddressPresenterProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736C25F413DD00494011 /* AddressPresenterProtocol.swift */; };
-		F693737025F413EC00494011 /* AddressPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693736F25F413EC00494011 /* AddressPresenter.swift */; };
-		F693737325F413FC00494011 /* AddressViewControllerProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693737225F413FC00494011 /* AddressViewControllerProtocol.swift */; };
-		F693737625F4141300494011 /* AddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693737525F4141300494011 /* AddressViewController.swift */; };
 		F693912B25F697DD0039068E /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = F693912A25F697DD0039068E /* UIView + Extension.swift */; };
 /* End PBXBuildFile section */
 
@@ -102,7 +88,7 @@
 		F685EE1B25FA49A600493CB9 /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		F685EE1E25FA806800493CB9 /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		F685EE2125FA83BA00493CB9 /* CartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartViewController.swift; sourceTree = "<group>"; };
-		F685EE2525FA953700493CB9 /* Enumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enumerations.swift; sourceTree = "<group>"; };
+		F685EE2525FA953700493CB9 /* MenuEnumerations.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuEnumerations.swift; sourceTree = "<group>"; };
 		F69372F525F36FEA00494011 /* FoodDelivery.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FoodDelivery.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F69372F825F36FEA00494011 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F69372FA25F36FEA00494011 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -117,7 +103,6 @@
 		F693732525F4047600494011 /* MenuInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuInteractor.swift; sourceTree = "<group>"; };
 		F693732825F4049B00494011 /* MenuRouterProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouterProtocol.swift; sourceTree = "<group>"; };
 		F693732B25F404AF00494011 /* MenuRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRouter.swift; sourceTree = "<group>"; };
-		F693732E25F4053900494011 /* MenuAssemblyProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssemblyProtocol.swift; sourceTree = "<group>"; };
 		F693733125F4055700494011 /* MenuAssembly.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuAssembly.swift; sourceTree = "<group>"; };
 		F693733525F409DD00494011 /* ProductViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewController.swift; sourceTree = "<group>"; };
 		F693733825F409F900494011 /* ProductViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductViewControllerProtocol.swift; sourceTree = "<group>"; };
@@ -125,20 +110,7 @@
 		F693734325F40BFF00494011 /* ProductPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductPresenterProtocol.swift; sourceTree = "<group>"; };
 		F693734625F40C1800494011 /* ProductInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInteractor.swift; sourceTree = "<group>"; };
 		F693734925F40C2A00494011 /* ProductInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductInteractorProtocol.swift; sourceTree = "<group>"; };
-		F693734C25F40C4600494011 /* ProductRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRouter.swift; sourceTree = "<group>"; };
-		F693734F25F40C5800494011 /* ProductRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductRouterProtocol.swift; sourceTree = "<group>"; };
 		F693735225F40C7500494011 /* ProductAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductAssembly.swift; sourceTree = "<group>"; };
-		F693735525F40C8300494011 /* ProductAssemblyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProductAssemblyProtocol.swift; sourceTree = "<group>"; };
-		F693735925F4135C00494011 /* AddressAssemblyProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressAssemblyProtocol.swift; sourceTree = "<group>"; };
-		F693735C25F4137100494011 /* AddressAssembly.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressAssembly.swift; sourceTree = "<group>"; };
-		F693736025F4138C00494011 /* AddressRouterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressRouterProtocol.swift; sourceTree = "<group>"; };
-		F693736325F413A900494011 /* AddressRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressRouter.swift; sourceTree = "<group>"; };
-		F693736625F413B900494011 /* AddresstInteractorProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddresstInteractorProtocol.swift; sourceTree = "<group>"; };
-		F693736925F413C800494011 /* AddressInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressInteractor.swift; sourceTree = "<group>"; };
-		F693736C25F413DD00494011 /* AddressPresenterProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPresenterProtocol.swift; sourceTree = "<group>"; };
-		F693736F25F413EC00494011 /* AddressPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressPresenter.swift; sourceTree = "<group>"; };
-		F693737225F413FC00494011 /* AddressViewControllerProtocol.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewControllerProtocol.swift; sourceTree = "<group>"; };
-		F693737525F4141300494011 /* AddressViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddressViewController.swift; sourceTree = "<group>"; };
 		F693912A25F697DD0039068E /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -204,10 +176,17 @@
 			isa = PBXGroup;
 			children = (
 				F63FD57525F535AA00C43CCF /* ScrollableHorizontalStackView.swift */,
-				F693912A25F697DD0039068E /* UIView + Extension.swift */,
 				F6788B4025F7CC0C00D5FE22 /* ProductTableViewCell.swift */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		F66246B525FE98FC00095A8B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F693912A25F697DD0039068E /* UIView + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		F6788B4425F7F35C00D5FE22 /* Entities */ = {
@@ -250,11 +229,12 @@
 		F69372F725F36FEA00494011 /* FoodDelivery */ = {
 			isa = PBXGroup;
 			children = (
+				F685EE1E25FA806800493CB9 /* MainTabBarController.swift */,
 				F693730E25F3F30B00494011 /* Application */,
 				F685EE0125FA496F00493CB9 /* Services */,
+				F66246B525FE98FC00095A8B /* Extensions */,
 				F693733F25F40B9400494011 /* Modules */,
 				F693730125F36FEB00494011 /* Assets.xcassets */,
-				F685EE1E25FA806800493CB9 /* MainTabBarController.swift */,
 				F693730325F36FEB00494011 /* LaunchScreen.storyboard */,
 				F685EDFB25FA3D1700493CB9 /* GoogleService-Info.plist */,
 				F693730625F36FEB00494011 /* Info.plist */,
@@ -274,6 +254,8 @@
 		F693730F25F3F33400494011 /* Menu */ = {
 			isa = PBXGroup;
 			children = (
+				F6788B3A25F7B7B900D5FE22 /* MenuConstants.swift */,
+				F685EE2525FA953700493CB9 /* MenuEnumerations.swift */,
 				F6788B4425F7F35C00D5FE22 /* Entities */,
 				F63FD57425F5346300C43CCF /* Views */,
 				F693737825F414AE00494011 /* Protocols */,
@@ -282,8 +264,6 @@
 				F693732525F4047600494011 /* MenuInteractor.swift */,
 				F693732B25F404AF00494011 /* MenuRouter.swift */,
 				F693733125F4055700494011 /* MenuAssembly.swift */,
-				F6788B3A25F7B7B900D5FE22 /* MenuConstants.swift */,
-				F685EE2525FA953700493CB9 /* Enumerations.swift */,
 			);
 			path = Menu;
 			sourceTree = "<group>";
@@ -295,29 +275,16 @@
 				F693733525F409DD00494011 /* ProductViewController.swift */,
 				F693734025F40BEA00494011 /* ProductPresenter.swift */,
 				F693734625F40C1800494011 /* ProductInteractor.swift */,
-				F693734C25F40C4600494011 /* ProductRouter.swift */,
 				F693735225F40C7500494011 /* ProductAssembly.swift */,
 				F63C97F125FB43710052C0B8 /* ProductStorageService.swift */,
 			);
 			path = Product;
 			sourceTree = "<group>";
 		};
-		F693731225F3F8C900494011 /* Address */ = {
-			isa = PBXGroup;
-			children = (
-				F693737A25F414C100494011 /* Protocols */,
-				F693737525F4141300494011 /* AddressViewController.swift */,
-				F693736F25F413EC00494011 /* AddressPresenter.swift */,
-				F693736925F413C800494011 /* AddressInteractor.swift */,
-				F693736325F413A900494011 /* AddressRouter.swift */,
-				F693735C25F4137100494011 /* AddressAssembly.swift */,
-			);
-			path = Address;
-			sourceTree = "<group>";
-		};
 		F693731325F3F92800494011 /* Cart */ = {
 			isa = PBXGroup;
 			children = (
+				F63C981F25FB7DD20052C0B8 /* CartEnumerations.swift */,
 				F63C982325FB82DA0052C0B8 /* Entities */,
 				F63C981925FB70000052C0B8 /* Views */,
 				F63C981725FB6B290052C0B8 /* Protocols */,
@@ -326,7 +293,6 @@
 				F63C980E25FB6B080052C0B8 /* CartInteractor.swift */,
 				F63C981125FB6B130052C0B8 /* CartRouter.swift */,
 				F63C981425FB6B1E0052C0B8 /* CartAssembly.swift */,
-				F63C981F25FB7DD20052C0B8 /* CartEnumerations.swift */,
 			);
 			path = Cart;
 			sourceTree = "<group>";
@@ -343,7 +309,6 @@
 			children = (
 				F693730F25F3F33400494011 /* Menu */,
 				F693731025F3F4D900494011 /* Product */,
-				F693731225F3F8C900494011 /* Address */,
 				F693731325F3F92800494011 /* Cart */,
 				F693731425F3FE6300494011 /* Order */,
 			);
@@ -357,7 +322,6 @@
 				F693731C25F4041200494011 /* MenuPresenterProtocol.swift */,
 				F693732225F4045F00494011 /* MenuInteractorProtocol.swift */,
 				F693732825F4049B00494011 /* MenuRouterProtocol.swift */,
-				F693732E25F4053900494011 /* MenuAssemblyProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -368,21 +332,7 @@
 				F693733825F409F900494011 /* ProductViewControllerProtocol.swift */,
 				F693734325F40BFF00494011 /* ProductPresenterProtocol.swift */,
 				F693734925F40C2A00494011 /* ProductInteractorProtocol.swift */,
-				F693734F25F40C5800494011 /* ProductRouterProtocol.swift */,
-				F693735525F40C8300494011 /* ProductAssemblyProtocol.swift */,
 				F63C97F525FB51D80052C0B8 /* ProductViewControllerDelegate.swift */,
-			);
-			path = Protocols;
-			sourceTree = "<group>";
-		};
-		F693737A25F414C100494011 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-				F693737225F413FC00494011 /* AddressViewControllerProtocol.swift */,
-				F693736C25F413DD00494011 /* AddressPresenterProtocol.swift */,
-				F693736625F413B900494011 /* AddresstInteractorProtocol.swift */,
-				F693736025F4138C00494011 /* AddressRouterProtocol.swift */,
-				F693735925F4135C00494011 /* AddressAssemblyProtocol.swift */,
 			);
 			path = Protocols;
 			sourceTree = "<group>";
@@ -507,25 +457,19 @@
 				F693731A25F403E700494011 /* MenuViewControllerProtocol.swift in Sources */,
 				F693734A25F40C2A00494011 /* ProductInteractorProtocol.swift in Sources */,
 				F63C980C25FB6AF90052C0B8 /* CartPresenter.swift in Sources */,
-				F693735A25F4135C00494011 /* AddressAssemblyProtocol.swift in Sources */,
 				F63C981B25FB70200052C0B8 /* CartTableViewCell.swift in Sources */,
 				F63C980F25FB6B080052C0B8 /* CartInteractor.swift in Sources */,
-				F693736A25F413C800494011 /* AddressInteractor.swift in Sources */,
 				F693735325F40C7500494011 /* ProductAssembly.swift in Sources */,
 				F685EE0325FA499300493CB9 /* ServerService.swift in Sources */,
 				F693734425F40BFF00494011 /* ProductPresenterProtocol.swift in Sources */,
-				F693735D25F4137100494011 /* AddressAssembly.swift in Sources */,
 				F63C97FC25FB6A8D0052C0B8 /* CartPresenterProtocol.swift in Sources */,
 				F6788B4625F7F41500D5FE22 /* MenuProduct.swift in Sources */,
 				F693732325F4045F00494011 /* MenuInteractorProtocol.swift in Sources */,
-				F693736725F413B900494011 /* AddresstInteractorProtocol.swift in Sources */,
-				F693735025F40C5800494011 /* ProductRouterProtocol.swift in Sources */,
 				F693733625F409DD00494011 /* ProductViewController.swift in Sources */,
 				F63C97FF25FB6A9E0052C0B8 /* CartInteractorProtocol.swift in Sources */,
 				F6788B4125F7CC0C00D5FE22 /* ProductTableViewCell.swift in Sources */,
 				F685EE2225FA83BA00493CB9 /* CartViewController.swift in Sources */,
 				F63C982025FB7DD20052C0B8 /* CartEnumerations.swift in Sources */,
-				F693736D25F413DD00494011 /* AddressPresenterProtocol.swift in Sources */,
 				F63C982825FBD9140052C0B8 /* CartCheckoutView.swift in Sources */,
 				F63C980625FB6ACB0052C0B8 /* CartRouterProtocol.swift in Sources */,
 				F693733925F409F900494011 /* ProductViewControllerProtocol.swift in Sources */,
@@ -538,27 +482,19 @@
 				F693912B25F697DD0039068E /* UIView + Extension.swift in Sources */,
 				F693731D25F4041200494011 /* MenuPresenterProtocol.swift in Sources */,
 				F63C97F225FB43710052C0B8 /* ProductStorageService.swift in Sources */,
-				F693736125F4138C00494011 /* AddressRouterProtocol.swift in Sources */,
-				F693736425F413A900494011 /* AddressRouter.swift in Sources */,
 				F6788B3825F7495000D5FE22 /* ProductTypeButton.swift in Sources */,
 				F693734125F40BEA00494011 /* ProductPresenter.swift in Sources */,
 				F685EE1C25FA49A600493CB9 /* StorageService.swift in Sources */,
-				F693737025F413EC00494011 /* AddressPresenter.swift in Sources */,
 				F685EDFF25FA3E5B00493CB9 /* ProductTypes.swift in Sources */,
-				F693732F25F4053900494011 /* MenuAssemblyProtocol.swift in Sources */,
 				F693732C25F404AF00494011 /* MenuRouter.swift in Sources */,
-				F693734D25F40C4600494011 /* ProductRouter.swift in Sources */,
 				F693733225F4055700494011 /* MenuAssembly.swift in Sources */,
 				F63FD57625F535AA00C43CCF /* ScrollableHorizontalStackView.swift in Sources */,
 				F693732025F4042900494011 /* MenuPresenter.swift in Sources */,
 				F63C980925FB6AE10052C0B8 /* CartAssemblyProtocol.swift in Sources */,
-				F693737325F413FC00494011 /* AddressViewControllerProtocol.swift in Sources */,
 				F685EE1F25FA806800493CB9 /* MainTabBarController.swift in Sources */,
-				F693737625F4141300494011 /* AddressViewController.swift in Sources */,
 				F63C981525FB6B1E0052C0B8 /* CartAssembly.swift in Sources */,
-				F693735625F40C8300494011 /* ProductAssemblyProtocol.swift in Sources */,
 				F693732925F4049B00494011 /* MenuRouterProtocol.swift in Sources */,
-				F685EE2625FA953700493CB9 /* Enumerations.swift in Sources */,
+				F685EE2625FA953700493CB9 /* MenuEnumerations.swift in Sources */,
 				F63C97F625FB51D80052C0B8 /* ProductViewControllerDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

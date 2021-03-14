@@ -62,4 +62,10 @@ extension MenuPresenter: MenuPresenterProtocol {
     func addStorageService(storageService: StorageService) {
         self.interactor.storageService = storageService
     }
+    
+    func viewWillAppear(productType: ProductType) {
+        let inCartProducts = self.interactor.getInCartProducts(by: productType)
+        self.viewController.setInCartProducts(using: inCartProducts)
+        //TODO: get all not in cart products
+    }
 }

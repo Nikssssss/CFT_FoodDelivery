@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CartAssemblyProtocol: class {
-    func assemble(with viewController: CartViewController)
+    func assemble(with viewController: CartViewController, andWith addStorageClosure: (() -> Void)!)
 }

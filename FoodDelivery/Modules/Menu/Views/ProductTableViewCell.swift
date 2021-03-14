@@ -43,7 +43,7 @@ class ProductTableViewCell: UITableViewCell {
 private extension ProductTableViewCell {
     func setupView() {
         self.selectionStyle = .none
-        self.contentView.layer.borderWidth = 0.8
+        self.contentView.layer.borderWidth = 0.6
         self.contentView.layer.borderColor = UIColor.lightGray.cgColor
         self.setupProductImageView()
         self.setupProductNameLabel()
@@ -92,6 +92,8 @@ private extension ProductTableViewCell {
         self.productPriceLabel.backgroundColor = MenuConstants.Colors.productPriceLabelBackground
         self.productPriceLabel.textColor = MenuConstants.Colors.productPriceLabel
         self.productPriceLabel.textAlignment = .center
+        self.productPriceLabel.layer.borderWidth = 1.0
+        self.productPriceLabel.layer.borderColor = MenuConstants.Colors.productPriceLabel.cgColor
         self.productPriceLabel.layer.cornerRadius = 8
         self.productPriceLabel.layer.masksToBounds = true
     }

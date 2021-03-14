@@ -23,9 +23,9 @@ struct MenuConstants {
         static let productTypeInactiveButton = UIColor.gray
         static let productTypeButtonBottomBorder = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
         
-        static let productNameLabel = UIColor.gray
-        static let productPriceLabel = UIColor.white
-        static let productPriceLabelBackground = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
+        static let productNameLabel = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
+        static let productPriceLabel = UIColor.gray
+        static let productPriceLabelBackground = UIColor.white
         static let addToCartButtonColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
     }
     

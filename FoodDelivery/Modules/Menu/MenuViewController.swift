@@ -24,8 +24,16 @@ class MenuViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        assembly.assemble(with: self, andWith: self.addStorageService)
-        presenter.configureView()
+        self.assembly.assemble(with: self, andWith: self.addStorageService)
+        self.presenter.configureView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        guard self.currentProductType != nil else {
+            return
+        }
+        self.presenter.viewWillAppear(productType: currentProductType)
     }
 }
 
@@ -54,7 +62,6 @@ extension MenuViewController: MenuViewControllerProtocol {
     
     func setInCartState(for productTag: Int, productType: ProductType) {
         if productType == self.currentProductType {
-            print("setInCartState \(productTag)")
             self.addToCartButtons[productTag].isSelected = true
             self.productsTableView.reloadData()
         }
@@ -62,18 +69,27 @@ extension MenuViewController: MenuViewControllerProtocol {
     
     func setNotInCartState(for productTag: Int, productType: ProductType) {
         if productType == self.currentProductType {
-            print("setNotInCartState \(productTag)")
             self.addToCartButtons[productTag].isSelected = false
             self.productsTableView.reloadData()
         }
     }
     
     func setInCartProducts(using menuProducts: [MenuProduct]) {
+        var inCartProductIndexes = [Int]()
         for inCartProduct in menuProducts {
             for index in 0..<self.productList.count {
                 if inCartProduct.name == self.productList[index].name {
-                    addToCartButtons[index].isSelected = true
+                    self.addToCartButtons[index].isSelected = true
+                    inCartProductIndexes.append(index)
                 }
+            }
+        }
+        for index in 0..<self.productList.count {
+            let isInIndexes = inCartProductIndexes.contains(where: { (inCartProductIndex) -> Bool in
+                return index == inCartProductIndex
+            })
+            if isInIndexes == false {
+                self.addToCartButtons[index].isSelected = false
             }
         }
         self.productsTableView.reloadData()
@@ -114,13 +130,13 @@ extension MenuViewController: UITableViewDelegate {
 extension MenuViewController: ProductViewControllerDelegate {
     func productSceneWasClosed(with menuProduct: MenuProduct,
                                withAddToCartButtonState state: ProductInCartState) {
-        for index in 0..<productList.count {
-            if productList[index].name == menuProduct.name {
+        for index in 0..<self.productList.count {
+            if self.productList[index].name == menuProduct.name {
                 switch state {
                 case .addedToCart:
-                    addToCartButtons[index].isSelected = true
+                    self.addToCartButtons[index].isSelected = true
                 case .removedFromCart:
-                    addToCartButtons[index].isSelected = false
+                    self.addToCartButtons[index].isSelected = false
                 }
             }
         }

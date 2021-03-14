@@ -19,7 +19,7 @@ class ProductViewController: UIViewController {
     private let productTitleLabel = UILabel()
     private let productImageView = UIImageView()
     private let productDescriptionTextView = UITextView()
-    private let productOrderButton = UIButton()
+    private let productAddToCartButton = UIButton()
     private let productPriceLabel = UILabel()
 
     override func viewDidLoad() {
@@ -30,7 +30,7 @@ class ProductViewController: UIViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        let addToCartButtonState: ProductInCartState = productOrderButton.isSelected ? .addedToCart : .removedFromCart
+        let addToCartButtonState: ProductInCartState = productAddToCartButton.isSelected ? .addedToCart : .removedFromCart
         delegate.productSceneWasClosed(with: menuProduct, withAddToCartButtonState: addToCartButtonState)
     }
 
@@ -99,32 +99,32 @@ private extension ProductViewController {
     }
     
     func setupProductOrderButton() {
-        self.view.addSubview(self.productOrderButton)
-        self.productOrderButton.snp.makeConstraints { (make) in
+        self.view.addSubview(self.productAddToCartButton)
+        self.productAddToCartButton.snp.makeConstraints { (make) in
             make.bottom.equalToSuperview().offset(-50)
             make.right.equalToSuperview().offset(-30)
             make.width.equalTo(150)
             make.height.equalTo(40)
         }
-        self.productOrderButton.addTarget(self, action: #selector(self.orderButtonPressed), for: .touchUpInside)
-        self.productOrderButton.setTitleColor(.white, for: .normal)
-        self.productOrderButton.setTitle("В корзину", for: .normal)
-        self.productOrderButton.setTitle("В корзине", for: .selected)
-        self.productOrderButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
-        self.productOrderButton.layer.cornerRadius = 15
+        self.productAddToCartButton.addTarget(self, action: #selector(self.addToCartButtonPressed), for: .touchUpInside)
+        self.productAddToCartButton.setTitleColor(.white, for: .normal)
+        self.productAddToCartButton.setTitle("В корзину", for: .normal)
+        self.productAddToCartButton.setTitle("В корзине", for: .selected)
+        self.productAddToCartButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        self.productAddToCartButton.layer.cornerRadius = 15
     }
     
     func setupProductPriceLabel() {
         self.view.addSubview(self.productPriceLabel)
         self.productPriceLabel.snp.makeConstraints { (make) in
             make.left.equalToSuperview().offset(35)
-            make.centerY.equalTo(self.productOrderButton)
+            make.centerY.equalTo(self.productAddToCartButton)
             make.width.equalTo(55)
             make.height.equalTo(30)
         }
         self.productPriceLabel.font = .systemFont(ofSize: 15, weight: .regular)
         self.productPriceLabel.textColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
-        self.productPriceLabel.layer.borderWidth = 0.5
+        self.productPriceLabel.layer.borderWidth = 1.0
         self.productPriceLabel.layer.borderColor = UIColor(red: 186.0 / 255.0,
                                                            green: 42.0 / 255.0,
                                                            blue: 42.0 / 255.0,
@@ -134,21 +134,21 @@ private extension ProductViewController {
         self.productPriceLabel.layer.cornerRadius = 10
     }
     
-    @objc func orderButtonPressed() {
-        self.presenter.productOrderButtonPressed(menuProduct: self.menuProduct)
+    @objc func addToCartButtonPressed() {
+        self.presenter.productAddToCartButtonPressed(menuProduct: self.menuProduct)
     }
     
     func changeOrderButtonState(to state: ProductInCartState) {
         switch state {
         case .addedToCart:
-            self.productOrderButton.backgroundColor = .gray
-            self.productOrderButton.isSelected = true
+            self.productAddToCartButton.backgroundColor = .gray
+            self.productAddToCartButton.isSelected = true
         case .removedFromCart:
-            self.productOrderButton.backgroundColor = UIColor(red: 186.0 / 255.0,
+            self.productAddToCartButton.backgroundColor = UIColor(red: 186.0 / 255.0,
                                                               green: 42.0 / 255.0,
                                                               blue: 42.0 / 255.0,
                                                               alpha: 1.0)
-            self.productOrderButton.isSelected = false
+            self.productAddToCartButton.isSelected = false
         }
     }
 }

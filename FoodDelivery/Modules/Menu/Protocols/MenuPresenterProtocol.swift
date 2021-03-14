@@ -13,4 +13,5 @@ protocol MenuPresenterProtocol: class {
     func productCellPressed(with menuProduct: MenuProduct)
     func addToCartButtonPressed(tagged tag: Int, currentProductType: ProductType)
     func addStorageService(storageService: StorageService)
+    func viewWillAppear(productType: ProductType)
 }

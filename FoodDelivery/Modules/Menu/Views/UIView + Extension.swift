@@ -11,10 +11,13 @@ import UIKit
 extension UIView {
     func addTopBorderWithColor(color: UIColor, width: CGFloat) {
         let border = UIView()
-        border.backgroundColor = color
-        border.autoresizingMask = [.flexibleWidth, .flexibleTopMargin]
-        border.frame = CGRect(x: 0, y: 0, width: self.frame.size.width, height: width)
         self.addSubview(border)
+        border.backgroundColor = color
+        border.snp.makeConstraints { (make) in
+            make.top.equalToSuperview()
+            make.left.right.equalToSuperview()
+            make.height.equalTo(width)
+        }
     }
     
     func addRightBorderWithColor(color: UIColor, width: CGFloat) {

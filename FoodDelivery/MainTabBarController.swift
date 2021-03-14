@@ -12,12 +12,19 @@ class MainTabBarController: UITabBarController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         let storageService = StorageService()
+        
         let menuViewController = MenuViewController()
         menuViewController.addStorageService = {
             menuViewController.presenter.addStorageService(storageService: storageService)
         }
+        
+        let cartViewController = CartViewController()
+        cartViewController.addStorageService = {
+            cartViewController.presenter.addStorageService(storageService: storageService)
+        }
+        
         let tabMenuViewController = self.setupTab(viewController: menuViewController, tabBarTitle: "Меню", tabBarImageName: "list.bullet")
-        let tabCartViewController = self.setupTab(viewController: CartViewController(), tabBarTitle: "Корзина", tabBarImageName: "cart.circle.fill")
+        let tabCartViewController = self.setupTab(viewController: cartViewController, tabBarTitle: "Корзина", tabBarImageName: "cart.circle.fill")
         self.viewControllers = [tabMenuViewController, tabCartViewController]
         self.selectedViewController = tabMenuViewController
         self.tabBar.tintColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)

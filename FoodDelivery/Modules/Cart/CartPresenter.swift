@@ -18,5 +18,56 @@ class CartPresenter {
 }
 
 extension CartPresenter: CartPresenterProtocol {
+    func addStorageService(storageService: StorageService) {
+        self.interactor.storageService = storageService
+    }
     
+    func configureView() {
+        let inCartProducts = self.interactor.getAllInCartProducts()
+        self.viewController.configureView(with: inCartProducts)
+        self.viewController.setFinalCost(finalCost: self.calculateFinalCost(from: inCartProducts))
+    }
+    
+    func viewWillAppear() {
+        let inCartProducts = self.interactor.getAllInCartProducts()
+        let finalCost = self.calculateFinalCost(from: inCartProducts)
+        self.viewController.updateProductList(with: inCartProducts)
+        self.viewController.setFinalCost(finalCost: finalCost)
+    }
+    
+    func incrementNumberOfItemsPressed(titled title: String) {
+        let incrementedNumber = self.interactor.incrementNumberOfItems(ofProductTitled: title)
+        self.viewController.setNumberOfItems(ofProductTitled: title, to: incrementedNumber)
+        let finalCost = self.calculateFinalCost(from: self.interactor.getAllInCartProducts())
+        self.viewController.setFinalCost(finalCost: finalCost)
+    }
+    
+    func decrementNumberOfItemsPressed(titled title: String) {
+        let decrementedNumber = self.interactor.decrementNumberOfItems(ofProductTitled: title)
+        if decrementedNumber == 0 {
+            self.interactor.removeInCartProduct(titled: title)
+            self.viewController.removeProduct(titled: title)
+        } else {
+            self.viewController.setNumberOfItems(ofProductTitled: title, to: decrementedNumber)
+        }
+        let finalCost = self.calculateFinalCost(from: self.interactor.getAllInCartProducts())
+        self.viewController.setFinalCost(finalCost: finalCost)
+    }
+}
+
+private extension CartPresenter {
+    func calculateFinalCost(from inCartProducts: [CartProduct]) -> Int {
+        var finalCost = 0
+        for product in inCartProducts {
+            if let index = product.price.firstIndex(of: "p"),
+               let price = Int(product.price.prefix(upTo: index)) {
+                finalCost += price * product.numberOfItems
+            }
+            else if let index = product.price.firstIndex(of: "р"),
+                    let price = Int(product.price.prefix(upTo: index)) {
+                finalCost += price * product.numberOfItems
+            }
+        }
+        return finalCost
+    }
 }

@@ -32,19 +32,47 @@ class StorageService {
         userDefaults.removeObject(forKey: productKey)
     }
     
-    func incrementProductNumberInCart(productTag: Int, productType: ProductType) {
-        let productKey = menuProducts[productType.rawValue]![productTag].name
-        let previousNumber = userDefaults.object(forKey: productKey) as! Int
-        let currentNumber = previousNumber + 1
-        userDefaults.setValue(currentNumber, forKey: productKey)
+    func removeProductFromCart(titled title: String) {
+        for productType in menuProducts {
+            for product in productType.value {
+                if product.name == title {
+                    userDefaults.removeObject(forKey: product.name)
+                    return
+                }
+            }
+        }
     }
     
-    func decrementProductNumberInCart(productTag: Int, productType: ProductType) -> Int {
-        let productKey = menuProducts[productType.rawValue]![productTag].name
-        let previousNumber = userDefaults.object(forKey: productKey) as! Int
-        let currentNumber = previousNumber - 1
-        userDefaults.setValue(currentNumber, forKey: productKey)
-        return currentNumber
+    func incrementProductNumberInCart(titled title: String) -> Int{
+        var incrementedNumber = 0
+        for productType in menuProducts {
+            for product in productType.value {
+                if product.name == title {
+                    if let numberOfItems = userDefaults.object(forKey: product.name) as? Int {
+                        incrementedNumber = numberOfItems + 1
+                        userDefaults.setValue(incrementedNumber, forKey: product.name)
+                        return incrementedNumber
+                    }
+                }
+            }
+        }
+        return incrementedNumber
+    }
+    
+    func decrementProductNumberInCart(titled title: String) -> Int {
+        var incrementedNumber = 0
+        for productType in menuProducts {
+            for product in productType.value {
+                if product.name == title {
+                    if let numberOfItems = userDefaults.object(forKey: product.name) as? Int {
+                        incrementedNumber = numberOfItems - 1
+                        userDefaults.setValue(incrementedNumber, forKey: product.name)
+                        return incrementedNumber
+                    }
+                }
+            }
+        }
+        return incrementedNumber
     }
     
     func getInCartProducts(by productType: ProductType) -> [MenuProduct] {
@@ -52,6 +80,21 @@ class StorageService {
         for product in menuProducts[productType.rawValue]! {
             if userDefaults.object(forKey: product.name) != nil {
                 inCartProducts.append(product)
+            }
+        }
+        return inCartProducts
+    }
+    
+    func getAllInCartProducts() -> [CartProduct] {
+        var inCartProducts = [CartProduct]()
+        for productType in menuProducts {
+            for product in productType.value {
+                if let numberOfItems = userDefaults.object(forKey: product.name) as? Int {
+                    inCartProducts.append(CartProduct(name: product.name,
+                                                      price: product.price,
+                                                      imageURL: product.imageURL,
+                                                      numberOfItems: numberOfItems))
+                }
             }
         }
         return inCartProducts

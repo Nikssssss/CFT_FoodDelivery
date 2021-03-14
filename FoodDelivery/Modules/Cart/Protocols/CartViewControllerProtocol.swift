@@ -8,5 +8,9 @@
 import Foundation
 
 protocol CartViewControllerProtocol: class {
-    
+    func configureView(with menuProducts: [CartProduct])
+    func setFinalCost(finalCost: Int)
+    func updateProductList(with menuProducts: [CartProduct])
+    func removeProduct(titled title: String)
+    func setNumberOfItems(ofProductTitled title: String, to number: Int)
 }

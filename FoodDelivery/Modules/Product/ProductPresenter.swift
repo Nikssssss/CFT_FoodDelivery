@@ -23,7 +23,7 @@ extension ProductPresenter: ProductPresenterProtocol {
         self.viewController.configureView(isProductInCart: isProductInCart)
     }
     
-    func productOrderButtonPressed(menuProduct: MenuProduct) {
+    func productAddToCartButtonPressed(menuProduct: MenuProduct) {
         let productInCartState = self.interactor.changeProductInCartState(menuProduct: menuProduct)
         self.viewController.changeProductInCartState(to: productInCartState)
     }

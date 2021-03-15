@@ -8,9 +8,9 @@
 import Foundation
 
 protocol CartPresenterProtocol: class {
-    func addStorageService(storageService: StorageService)
     func configureView()
     func viewWillAppear()
     func incrementNumberOfItemsPressed(titled title: String)
     func decrementNumberOfItemsPressed(titled title: String)
+    func orderButtonPressed()
 }

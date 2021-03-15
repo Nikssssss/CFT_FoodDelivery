@@ -58,6 +58,7 @@ private extension CartTableViewCell {
         self.setupProductImageView()
         self.setupProductNameLabel()
         self.setupProductPriceLabel()
+        self.backgroundColor = .white
     }
     
     func setupProductImageView() {

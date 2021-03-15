@@ -13,4 +13,6 @@ protocol CartViewControllerProtocol: class {
     func updateProductList(with menuProducts: [CartProduct])
     func removeProduct(titled title: String)
     func setNumberOfItems(ofProductTitled title: String, to number: Int)
+    func makeOrderButtonInactive()
+    func makeOrderButtonActive()
 }

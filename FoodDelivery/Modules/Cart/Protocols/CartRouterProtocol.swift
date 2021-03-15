@@ -8,5 +8,5 @@
 import Foundation
 
 protocol CartRouterProtocol: class {
-    
+    func showOrderScene(using storageService: StorageService)
 }

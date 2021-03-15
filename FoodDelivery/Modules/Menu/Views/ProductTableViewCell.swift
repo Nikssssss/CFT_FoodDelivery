@@ -47,6 +47,8 @@ private extension ProductTableViewCell {
         self.contentView.layer.borderColor = UIColor.lightGray.cgColor
         self.setupProductImageView()
         self.setupProductNameLabel()
+        self.backgroundColor = .clear
+        self.isOpaque = false
     }
     
     func setupProductImageView() {
@@ -69,6 +71,7 @@ private extension ProductTableViewCell {
         }
         self.productNameLabel.font = MenuConstants.Fonts.productNameLabel
         self.productNameLabel.textColor = MenuConstants.Colors.productNameLabel
+        self.productNameLabel.backgroundColor = .white
     }
     
     func setupAddToCartButton() {
@@ -96,5 +99,6 @@ private extension ProductTableViewCell {
         self.productPriceLabel.layer.borderColor = MenuConstants.Colors.productPriceLabel.cgColor
         self.productPriceLabel.layer.cornerRadius = 8
         self.productPriceLabel.layer.masksToBounds = true
+        self.productPriceLabel.backgroundColor = .white
     }
 }

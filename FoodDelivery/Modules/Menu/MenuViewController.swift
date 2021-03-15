@@ -155,7 +155,8 @@ private extension MenuViewController {
         let titleLabel = UILabel()
         titleLabel.text = "Food Delivery"
         titleLabel.font = UIFont(name: "Chalkboard SE Bold", size: 23)
-        titleLabel.textColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
+        titleLabel.textColor = .white
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 150.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
         self.navigationItem.titleView = titleLabel
         self.navigationController?.navigationBar.isTranslucent = false
     }
@@ -178,6 +179,8 @@ private extension MenuViewController {
                 self.makeProductTypeButtonInactive(productButton: productButton)
             }
         }
+        
+        self.productTypeStackView.backgroundColor = .white
     }
     
     func setupProductsTableView(){
@@ -192,6 +195,7 @@ private extension MenuViewController {
         self.productsTableView.dataSource = self
         self.productsTableView.delegate = self
         self.productsTableView.separatorStyle = .none
+        self.productsTableView.backgroundColor = .white
     }
     
     // MARK: action methods

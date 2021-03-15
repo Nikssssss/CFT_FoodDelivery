@@ -8,7 +8,7 @@
 import UIKit
 
 class CartCheckoutView: UIView {
-    let makeOrderButton = UIButton()
+    let orderButton = UIButton()
     let finalCostLabel = UILabel()
     
     override init(frame: CGRect) {
@@ -24,23 +24,23 @@ class CartCheckoutView: UIView {
 
 private extension CartCheckoutView {
     func setupView() {
-        self.setupMakeOrderButton()
+        self.setupOrderButton()
         self.setupFinalCostLabel()
+        self.backgroundColor = .white
     }
     
-    func setupMakeOrderButton() {
-        self.addSubview(self.makeOrderButton)
-        self.makeOrderButton.snp.makeConstraints { (make) in
+    func setupOrderButton() {
+        self.addSubview(self.orderButton)
+        self.orderButton.snp.makeConstraints { (make) in
             make.centerY.equalToSuperview()
             make.right.equalToSuperview().offset(-30)
             make.width.equalTo(150)
             make.height.equalTo(40)
         }
-        self.makeOrderButton.setTitleColor(.white, for: .normal)
-        self.makeOrderButton.backgroundColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
-        self.makeOrderButton.setTitle("Оформить", for: .normal)
-        self.makeOrderButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
-        self.makeOrderButton.layer.cornerRadius = 15
+        self.orderButton.setTitleColor(.white, for: .normal)
+        self.orderButton.setTitle("Оформить", for: .normal)
+        self.orderButton.titleLabel?.font = .systemFont(ofSize: 14, weight: .medium)
+        self.orderButton.layer.cornerRadius = 15
     }
     
     func setupFinalCostLabel() {

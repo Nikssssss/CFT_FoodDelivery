@@ -34,6 +34,7 @@ class ScrollableHorizontalStackView: UIScrollView {
 
 private extension ScrollableHorizontalStackView {
     func setup(){
+        self.backgroundColor = .white
         self.setupScrollView()
         self.setupStackView()
     }
@@ -47,6 +48,7 @@ private extension ScrollableHorizontalStackView {
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         self.showsHorizontalScrollIndicator = false
         self.showsVerticalScrollIndicator = false
+        self.contentView.backgroundColor = .white
     }
     
     func setupStackView() {
@@ -62,5 +64,6 @@ private extension ScrollableHorizontalStackView {
         self.stackView.axis = .horizontal
         self.stackView.translatesAutoresizingMaskIntoConstraints = false
         self.stackView.alignment = .center
+        self.stackView.backgroundColor = .white
     }
 }

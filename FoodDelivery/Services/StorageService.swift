@@ -117,4 +117,27 @@ class StorageService {
             return .addedToCart
         }
     }
+    
+    func getSavedUserInfo() -> SavedUserInfo {
+        let name: String? = userDefaults.object(forKey: "userName") as? String
+        let phone: String? = userDefaults.object(forKey: "userPhone") as? String
+        let email: String? = userDefaults.object(forKey: "userEmail") as? String
+        return SavedUserInfo(name: name, phone: phone, email: email)
+    }
+    
+    func setSavedUserInfo(using userInfo: SavedUserInfo) {
+        userDefaults.setValue(userInfo.name!, forKey: "userName")
+        userDefaults.setValue(userInfo.phone!, forKey: "userPhone")
+        userDefaults.setValue(userInfo.email, forKey: "userEmail")
+    }
+    
+    func removeAllInCartProducts() {
+        for productType in menuProducts {
+            for product in productType.value {
+                if userDefaults.object(forKey: product.name) != nil {
+                    userDefaults.removeObject(forKey: product.name)
+                }
+            }
+        }
+    }
 }

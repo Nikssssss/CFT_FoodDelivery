@@ -18,9 +18,6 @@ class CartPresenter {
 }
 
 extension CartPresenter: CartPresenterProtocol {
-    func addStorageService(storageService: StorageService) {
-        self.interactor.storageService = storageService
-    }
     
     func configureView() {
         let inCartProducts = self.interactor.getAllInCartProducts()
@@ -33,6 +30,11 @@ extension CartPresenter: CartPresenterProtocol {
         let finalCost = self.calculateFinalCost(from: inCartProducts)
         self.viewController.updateProductList(with: inCartProducts)
         self.viewController.setFinalCost(finalCost: finalCost)
+        if inCartProducts.count == 0 {
+            self.viewController.makeOrderButtonInactive()
+        } else {
+            self.viewController.makeOrderButtonActive()
+        }
     }
     
     func incrementNumberOfItemsPressed(titled title: String) {
@@ -50,8 +52,18 @@ extension CartPresenter: CartPresenterProtocol {
         } else {
             self.viewController.setNumberOfItems(ofProductTitled: title, to: decrementedNumber)
         }
-        let finalCost = self.calculateFinalCost(from: self.interactor.getAllInCartProducts())
+        let inCartProducts = self.interactor.getAllInCartProducts()
+        let finalCost = self.calculateFinalCost(from: inCartProducts)
         self.viewController.setFinalCost(finalCost: finalCost)
+        if inCartProducts.count == 0 {
+            self.viewController.makeOrderButtonInactive()
+        }
+    }
+    
+    func orderButtonPressed() {
+        if self.interactor.getAllInCartProducts().count != 0 {
+            self.router.showOrderScene(using: self.interactor.storageService)
+        }
     }
 }
 

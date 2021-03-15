@@ -8,7 +8,7 @@
 import Foundation
 
 class CartRouter {
-    weak var viewController: CartViewControllerProtocol!
+    weak var viewController: CartViewController!
     
     init(viewController: CartViewController) {
         self.viewController = viewController
@@ -16,5 +16,9 @@ class CartRouter {
 }
 
 extension CartRouter: CartRouterProtocol {
-    
+    func showOrderScene(using storageService: StorageService) {
+        let orderViewController = OrderAssembly.assemble(with: storageService)
+        orderViewController.delegate = self.viewController
+        self.viewController.navigationController?.present(orderViewController, animated: true)
+    }
 }

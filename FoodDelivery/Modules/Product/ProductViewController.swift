@@ -69,6 +69,7 @@ private extension ProductViewController {
         self.productTitleLabel.font = .systemFont(ofSize: 20, weight: .heavy)
         self.productTitleLabel.textColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
         self.productTitleLabel.text = self.menuProduct.name
+        self.productTitleLabel.backgroundColor = .white
     }
     
     func setupProductImageView() {
@@ -94,6 +95,7 @@ private extension ProductViewController {
         self.productDescriptionTextView.textColor = .gray
         self.productDescriptionTextView.font = .systemFont(ofSize: 12, weight: .light)
         self.productDescriptionTextView.text = self.menuProduct.description
+        self.productDescriptionTextView.backgroundColor = .white
     }
     
     func setupProductOrderButton() {
@@ -130,6 +132,7 @@ private extension ProductViewController {
         self.productPriceLabel.text = self.menuProduct.price
         self.productPriceLabel.textAlignment = .center
         self.productPriceLabel.layer.cornerRadius = 10
+        self.productPriceLabel.backgroundColor = .white
     }
     
     @objc func addToCartButtonPressed() {

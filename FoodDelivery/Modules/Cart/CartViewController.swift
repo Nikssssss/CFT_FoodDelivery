@@ -59,6 +59,17 @@ extension CartViewController: CartViewControllerProtocol {
         }
         self.productsTableView.reloadData()
     }
+    
+    func makeOrderButtonInactive() {
+        self.cartCheckoutView.orderButton.backgroundColor = .gray
+    }
+    
+    func makeOrderButtonActive() {
+        self.cartCheckoutView.orderButton.backgroundColor = UIColor(red: 186.0 / 255.0,
+                                                                    green: 42.0 / 255.0,
+                                                                    blue: 42.0 / 255.0,
+                                                                    alpha: 1.0)
+    }
 }
 
 extension CartViewController: UITableViewDataSource {
@@ -87,6 +98,12 @@ extension CartViewController: UITableViewDelegate {
     }
 }
 
+extension CartViewController: OrderViewControllerDelegate {
+    func orderSceneWasClosed() {
+        self.presenter.viewWillAppear()
+    }
+}
+
 private extension CartViewController {
     func setupView() {
         self.view.backgroundColor = .white
@@ -100,9 +117,10 @@ private extension CartViewController {
         let titleLabel = UILabel()
         titleLabel.text = "Корзина"
         titleLabel.font = .boldSystemFont(ofSize: 20)
-        titleLabel.textColor = UIColor(red: 186.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
+        titleLabel.textColor = .white
         self.navigationItem.titleView = titleLabel
         self.navigationController?.navigationBar.isTranslucent = false
+        self.navigationController?.navigationBar.barTintColor = UIColor(red: 150.0 / 255.0, green: 42.0 / 255.0, blue: 42.0 / 255.0, alpha: 1.0)
     }
     
     func setupCartCheckoutView() {
@@ -113,8 +131,8 @@ private extension CartViewController {
             make.height.equalTo(60)
         }
         self.cartCheckoutView.addTopBorderWithColor(color: .lightGray, width: 0.2)
-        self.cartCheckoutView.makeOrderButton.addTarget(self,
-                                                        action: #selector(self.makeOrderButtonPressed),
+        self.cartCheckoutView.orderButton.addTarget(self,
+                                                        action: #selector(self.orderButtonPressed),
                                                         for: .touchUpInside)
     }
     
@@ -130,10 +148,11 @@ private extension CartViewController {
         self.productsTableView.dataSource = self
         self.productsTableView.delegate = self
         self.productsTableView.separatorStyle = .none
+        self.productsTableView.backgroundColor = .white
     }
     
-    @objc func makeOrderButtonPressed() {
-        
+    @objc func orderButtonPressed() {
+        self.presenter.orderButtonPressed()
     }
     
     func createChangeNumberButtons() {
